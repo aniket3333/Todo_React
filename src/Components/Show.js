@@ -6,7 +6,7 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
   return (
     <>
       <h4 className="text-muted p-2">
-        List of Added Task
+       <span style={{backgroundColor:'aqua'}}> List of Added Task</span>
         {tas.length > 1 && (
           <span className="p-2">
             <span style={{ color: "red" }}> All </span>
