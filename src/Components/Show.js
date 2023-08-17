@@ -30,7 +30,7 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
                   <span
                     className="text-capitalize"
                     style={{
-                      fontSize: "20px",
+                      fontSize: "10px",
                       fontFamily: "serif",
                       color: "black",
                     }}
