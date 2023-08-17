@@ -28,8 +28,16 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
               <div className="row p-2">
                 <div className="col-8">
                   <span
-                    className="text-capitalize badge"
-                    style={{fontSize:'25px'}}
+                    className="text-capitalize"
+                    style={{
+    fontSize: '20px',
+    backgroundColor: 'grey',
+    padding: '5px',
+    border: '1px',
+    borderRadius: '8px' ,
+    color:'black',
+    fontWeight:'bold'
+  }}
                   >
                     {item}
                   </span>
