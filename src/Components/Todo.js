@@ -86,6 +86,9 @@ Todo App
 </div>
 </div>
 </div>
+<div className='card-footer'>
+  <span className='text-muted'>Create By :</span><span> Bengaluru Startup</span>
+</div>
 </div>
      </div>
     </>
