@@ -13,6 +13,18 @@ const Todo = () => {
         setTask('')
        }
   }
+
+  const deleteTask = (index) =>{
+
+    const newList = tasks.filter((_,i)=>i!==index)
+    setTasks(newList) 
+  }
+
+  const AllDel = () =>{
+
+  
+    setTasks([]) 
+  }
   return (
     <>
      <div className='container'>
@@ -62,7 +74,7 @@ Todo App
 <div className='col-sm-8'>
 <div className='card'>
 <div className='card-body'>
-   <Show tas={tasks}/>
+   <Show tas={tasks} onDeleteClick={deleteTask} AllDelete={AllDel}/>
 </div>
 </div>
 </div>
