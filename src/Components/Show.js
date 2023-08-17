@@ -26,14 +26,10 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
           {tas.map((item, index) => (
             <li key={index}>
               <div className="row p-2">
-                <div className="col-4">
+                <div className="col-8">
                   <span
-                    className="text-capitalize"
-                    style={{
-                      fontSize: "10px",
-                      fontFamily: "serif",
-                      color: "black",
-                    }}
+                    className="text-capitalize badge"
+                    style={{fontSize:'25px'}}
                   >
                     {item}
                   </span>
