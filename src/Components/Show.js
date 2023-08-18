@@ -2,7 +2,8 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { Button } from "react-bootstrap";
-const Show = ({ tas, onDeleteClick, AllDelete }) => {
+const Show = ({ tas, onDeleteClick, AllDelete,UpdateChange }) => {
+ 
   return (
     <>
       <h4 className="text-muted p-2">
@@ -15,7 +16,6 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
               style={{ color: "red" }}
               onClick={() => AllDelete()}
             >
-             
               <MdDelete />
             </Button>
           </span>
@@ -30,19 +30,19 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
                   <span
                     className="text-capitalize"
                     style={{
-    fontSize: '20px',
-    backgroundColor: 'grey',
-    padding: '5px',
-    border: '1px',
-    borderRadius: '8px' ,
-    color:'black',
-    fontWeight:'bold'
-  }}
+                      fontSize: "20px",
+                      backgroundColor: "grey",
+                      padding: "5px",
+                      border: "1px",
+                      borderRadius: "8px",
+                      color: "black",
+                      fontWeight: "bold",
+                    }}
                   >
                     {item}
                   </span>
                 </div>
-                <div className="col-2">
+                <div className="col-1">
                   <Button
                     className="p-1"
                     style={{ color: "red" }}
@@ -51,8 +51,8 @@ const Show = ({ tas, onDeleteClick, AllDelete }) => {
                     <MdDelete />
                   </Button>
                 </div>
-                <div className="col-2">
-                  <Button className="p-1" style={{ color: "white" }}>
+                <div className="col-1">
+                  <Button className="p-1" style={{ color: "white" }} onClick={UpdateChange}>
                     <RxUpdate />
                   </Button>
                 </div>
