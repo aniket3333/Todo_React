@@ -1,46 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaTasks } from "react-icons/fa";
 import { MdTask } from "react-icons/md";
-import {AiOutlinePlus } from "react-icons/ai";
-import {Button} from 'react-bootstrap';
+import { AiOutlinePlus } from "react-icons/ai";
+import { Button } from "react-bootstrap";
 import Add from "./Add";
 import Show from "./Show";
-import Update from './Update';
+import Update from "./Update";
 const Todo = () => {
-
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
+  const [updater, setUpdater] = useState("");
+  const [indexUpdate, setIndexUpdate] = useState(0);
   const [update, setUpdate] = useState(false);
-  const [constMessage, setConstMessage] = useState('');
+  const [constMessage, setConstMessage] = useState("");
   const [len, setLen] = useState(0);
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    debugger;
+    const num = tasks.length;
+    setLen(num);
+  }, [tasks]);
   const handle = (item) => {
-    debugger
+    debugger;
     if (item.trim() !== "") {
-      setTasks([...tasks, item]);
+      setTasks((prevTasks) => [...prevTasks, item]);
       setTask("");
-      setConstMessage('Task Added Successfully')
-      const num = tasks.length
-      setLen(num)
-      
+      setConstMessage("Task Added Successfully");
+      const num = tasks.length;
+      setLen(num);
+      console.log(tasks);
     }
   };
 
-  const updateVal= () =>{
-   
-    setShow(false)
-    setUpdate(true)
-  }
+  const updateVal = (index) => {
+    setIndexUpdate(index);
+
+    setShow(false);
+    setUpdate(true);
+  };
 
   const deleteTask = (index) => {
     const newList = tasks.filter((_, i) => i !== index);
     setTasks(newList);
+    setUpdate(false);
   };
 
   const AllDel = () => {
     setTasks([]);
+    setConstMessage("All Tasks Deleted Successfully");
   };
+
+  const updateValue = (val, indexUpdate) => {
+    const newTasks = tasks.map((item, index) => {
+      if (index === indexUpdate) {
+        return val;
+      }
+      return item;
+    });
+
+    setTasks(newTasks);
+    setShow(true);
+  };
+
   return (
     <>
       <div className="container">
@@ -57,28 +79,54 @@ const Todo = () => {
                   <h3 className="text-muted p-2">
                     All Task <MdTask />
                   </h3>
-                  <Button className="text-left" onClick={()=>setShow(false)}> Add Task <AiOutlinePlus/></Button>
+                  {tasks.length === 0 && (
+                    <span className="text-danger">
+                      {" "}
+                      You have Not Added Any Task{" "}
+                    </span>
+                  )}
+                  <Button className="text-left" onClick={() => setShow(false)}>
+                    {" "}
+                    Add Task <AiOutlinePlus />
+                  </Button>
                   <hr />
 
-                  <div className="card">
-                    <div className="card-body">
-                      <Show
-                        tas={tasks}
-                        onDeleteClick={deleteTask}
-                        AllDelete={AllDel}
-                        UpdateChange={updateVal}                      />
+                  {tasks.length > 0 && (
+                    <div className="card">
+                      <div className="card-body">
+                        <Show
+                          tas={tasks}
+                          onDeleteClick={deleteTask}
+                          AllDelete={AllDel}
+                          UpdateChange={updateVal}
+                          constMessage={constMessage}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 <div className="col-sm-1"></div>
               </div>
-            ) : update ?(<Update/>): (
+            ) : update ? (
+              <Update
+                onUpdateValue={(e) => setUpdater(e.target.value)}
+                valUp={updater}
+                update={updateValue}
+                numr={indexUpdate}
+              />
+            ) : (
               <div className="row">
                 <div className="text-center">
                   <h3 className="text-muted p-2">
                     Add Task <FaTasks />
                   </h3>
-                {len>0 &&   <Button className="text-left" onClick={()=>setShow(true)}> Show All Taks<AiOutlinePlus/></Button>}
+                  {len > 0 && (
+                    <Button className="text-left" onClick={() => setShow(true)}>
+                      {" "}
+                      Show All Taks
+                      <AiOutlinePlus />
+                    </Button>
+                  )}
                   <hr />
 
                   <div className="card">

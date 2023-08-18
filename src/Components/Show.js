@@ -2,8 +2,13 @@ import React from "react";
 import { MdDelete } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
 import { Button } from "react-bootstrap";
-const Show = ({ tas, onDeleteClick, AllDelete,UpdateChange }) => {
- 
+const Show = ({
+  tas,
+  onDeleteClick,
+  AllDelete,
+  UpdateChange,
+  constMessage,
+}) => {
   return (
     <>
       <h4 className="text-muted p-2">
@@ -22,44 +27,54 @@ const Show = ({ tas, onDeleteClick, AllDelete,UpdateChange }) => {
         )}
       </h4>
       <div className="border mt-2 p-3">
-        <ol>
-          {tas.map((item, index) => (
-            <li key={index}>
-              <div className="row p-2">
-                <div className="col-8">
-                  <span
-                    className="text-capitalize"
-                    style={{
-                      fontSize: "20px",
-                      backgroundColor: "grey",
-                      padding: "5px",
-                      border: "1px",
-                      borderRadius: "8px",
-                      color: "black",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item}
-                  </span>
+        {tas.length > 0 ? (
+          <ol>
+            {tas.map((item, index) => (
+              <li key={index}>
+                <div className="row p-2">
+                  <div className="col-8">
+                    <span
+                      className="text-capitalize"
+                      style={{
+                        fontSize: "20px",
+                        backgroundColor: "grey",
+                        padding: "5px",
+                        border: "1px",
+                        borderRadius: "8px",
+                        color: "black",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item}
+                    </span>
+                  </div>
+                  <div className="col-2">
+                    <Button
+                      className="p-1"
+                      style={{ color: "red" }}
+                      onClick={() => onDeleteClick(index)}
+                    >
+                      <span style={{ color: "white" }}> Delete </span>{" "}
+                      <MdDelete />
+                    </Button>
+                  </div>
+                  <div className="col-2">
+                    <Button
+                      className="p-1"
+                      style={{ color: "black" }}
+                      onClick={() => UpdateChange(index)}
+                    >
+                      <span style={{ color: "white" }}> Update</span>{" "}
+                      <RxUpdate />
+                    </Button>
+                  </div>
                 </div>
-                <div className="col-1">
-                  <Button
-                    className="p-1"
-                    style={{ color: "red" }}
-                    onClick={() => onDeleteClick(index)}
-                  >
-                    <MdDelete />
-                  </Button>
-                </div>
-                <div className="col-1">
-                  <Button className="p-1" style={{ color: "white" }} onClick={UpdateChange}>
-                    <RxUpdate />
-                  </Button>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <span className="text-success">{constMessage}</span>
+        )}
       </div>
     </>
   );
