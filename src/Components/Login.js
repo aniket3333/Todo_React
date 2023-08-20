@@ -84,6 +84,7 @@ const Login = ({ onLog }) => {
                 onPss={(e) => setPass(e.target.value)}
                 onCpass={(e) => setCpass(e.target.value)}
                 onSignup={handleSignup}
+                onlin={()=>setSignup(false)}
               />
             ) : (
               <LoginPage

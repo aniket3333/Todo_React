@@ -1,10 +1,15 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-const SignUp = ({ usr, pss, cpss, onUsr, onPss, onCpass, onSignup }) => {
+const SignUp = ({ usr, pss, cpss, onUsr, onPss, onCpass, onSignup,onlin }) => {
   const handleSub = (e) => {
     e.preventDefault();
     onSignup();
   };
+  const han= (e) =>{
+    e.preventDefault()
+    onlin()
+
+  }
   return (
     <>
       <div className="row">
@@ -47,6 +52,10 @@ const SignUp = ({ usr, pss, cpss, onUsr, onPss, onCpass, onSignup }) => {
             </div>
             <div className="text-center mt-2">
               <Button type="submit">Sign Up</Button>
+              <br/>
+              <span className="text-warning">Allreday Registred.</span><br/>
+              <Button onClick={han}>Log In</Button>
+
             </div>
           </form>
         </div>
