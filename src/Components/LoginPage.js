@@ -1,10 +1,15 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-const LoginPage = ({ onLogIn, usr, pss, onUsr, onPss }) => {
+const LoginPage = ({ onLogIn, usr, pss, onUsr, onPss,onSign }) => {
   const handleLog = (e) => {
     e.preventDefault();
     onLogIn();
   };
+  const hanOb = (e) =>{
+    e.preventDefault()
+    onSign()
+
+  }
   return (
     <>
       <div className="row">
@@ -33,7 +38,9 @@ const LoginPage = ({ onLogIn, usr, pss, onUsr, onPss }) => {
             </div>
 
             <div className="text-center mt-2">
-              <Button type="submit">Log In</Button>
+              <Button type="submit">Log In</Button><br/>
+              <span className="text-warning">Not register Yet?</span><br/>
+              <Button onClick={(hanOb)}>Sign Up</Button>
             </div>
           </form>
         </div>

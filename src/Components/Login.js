@@ -10,6 +10,7 @@ const Login = ({ onLog }) => {
   const [pass, setPass] = useState("");
   const [cpass, setCpass] = useState("");
 
+  
   const handleSignup = () => {
     if (pass.trim() !== cpass.trim()) {
       return;
@@ -54,7 +55,7 @@ const Login = ({ onLog }) => {
           <div className="card-header">
             <div className="text-center">
               <h3>{pageName}</h3>
-              {
+              {/* {
   !signUp && (
     <div>
       <p className="text-danger">You can clone after login from GIT</p>
@@ -65,7 +66,7 @@ const Login = ({ onLog }) => {
       <p className="text-warning">To check signup, simply type wrong credentials</p>
     </div>
   )
-}
+} */}
 
 
 
@@ -91,6 +92,7 @@ const Login = ({ onLog }) => {
                 pss={pass}
                 onUsr={(e) => setUser(e.target.value)}
                 onPss={(e) => setPass(e.target.value)}
+                onSign={()=>setSignup(true)}
               />
             )}
           </div>
