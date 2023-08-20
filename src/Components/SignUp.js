@@ -9,7 +9,7 @@ const SignUp = ({ usr, pss, cpss, onUsr, onPss, onCpass, onSignup }) => {
     <>
       <div className="row">
         <div className="col-4"></div>
-        <div className="col-4">
+        <div className="col-12">
           <span className="text-warning">
             {" "}
             remember the <b>Username</b> and <b>Password</b> both for login
