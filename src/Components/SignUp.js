@@ -14,11 +14,8 @@ const SignUp = ({ usr, pss, cpss, onUsr, onPss, onCpass, onSignup,onlin }) => {
     <>
       <div className="row">
         <div className="col-4"></div>
-        <div className="col-8">
-        
-        <div className="row">
-        <div className="col-8">
-         <form onSubmit={handleSub}>
+        <div className="col-4">
+        <form onSubmit={handleSub}>
             <div className="form-group p-2">
               <label>username</label>
               <input
@@ -57,11 +54,7 @@ const SignUp = ({ usr, pss, cpss, onUsr, onPss, onCpass, onSignup,onlin }) => {
 
             </div>
           </form>
-         </div>
-        </div>
-        
-          
-        </div>
+          </div>
         <div className="col-4"></div>
       </div>
     </>
