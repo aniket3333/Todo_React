@@ -54,7 +54,6 @@ const Show = ({
                       style={{ color: "red" }}
                       onClick={() => onDeleteClick(index)}
                     >
-                    
                       <MdDelete />
                     </Button>
                   </div>
@@ -64,7 +63,6 @@ const Show = ({
                       style={{ color: "black" }}
                       onClick={() => UpdateChange(index)}
                     >
-                     
                       <RxUpdate />
                     </Button>
                   </div>

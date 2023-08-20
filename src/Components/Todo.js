@@ -66,7 +66,7 @@ const Todo = () => {
   return (
     <>
       <div className="container">
-        <div className="card">
+        <div className="card mt-3">
           <div className="card-header">
             <div className="text-center">
               <h1 className="text-primary">Todo App</h1>
@@ -143,6 +143,23 @@ const Todo = () => {
                 </div>
               </div>
             )}
+          </div>
+          <div className="card-footer">
+<div className="row">
+<div className="col-2">
+
+</div>
+<div className="col-10">
+<div>
+  <span> Git Link </span>
+  <a  href='https://github.com/aniket3333/Todo_React.git' target='_blank'>Get Code</a>
+</div>
+
+</div>
+<div className="col-2">
+
+</div>
+</div>
           </div>
         </div>
       </div>
